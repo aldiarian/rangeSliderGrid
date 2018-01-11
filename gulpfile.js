@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var postcss = require('gulp-postcss');
 var precss = require('precss');
+var nested = require('postcss-nested');
 var browserSync = require('browser-sync').create();
 
 
@@ -17,7 +18,7 @@ gulp.task('serve', ['css'], function() {
 
 gulp.task('css', function () {
 	var procesos = [
-		// precss
+		nested
 	];
 	return gulp.src('./src/**/*.css')
 		.pipe(postcss(procesos))

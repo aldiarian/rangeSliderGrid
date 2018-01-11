@@ -13,6 +13,7 @@
     "browser-sync": "^2.23.3",
     "gulp": "^3.9.1",
     "gulp-postcss": "^7.0.0",
+    "postcss-nested": "^3.0.0",
     "precss": "^2.0.0"
   }
 }

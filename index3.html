@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+
+<h1>Range Slider</h1>
+<div class="filrow filas">
+  <h2>Rows (filas)</h2>
+  <input type="range" min="1" max="12" value="3" list="selectorFilas" class="slideRows" id="selectRows">
+
+  <datalist id="selectorFilas">
+    <option value="0"></option>
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+    <option value="5"></option>
+    <option value="6"></option>
+    <option value="7"></option>
+    <option value="8"></option>
+    <option value="9"></option>
+    <option value="10"></option>
+    <option value="11"></option>
+  </datalist>
+  <p>nº filas: <span id="demoRows"></span></p>
+  
+</div>
+
+
+<div class="filrow columnas">
+  <h2>Columnas</h2>
+
+  <input type="range" min="1" max="5" value="3" list="selectorColumnas" class="slideColumns" id="selectColumns">
+
+  <datalist id="selectorColumnas">
+    <option value="0"></option>
+    <option value="1"></option>
+    <option value="2"></option>
+    <option value="3"></option>
+    <option value="4"></option>
+    <option value="5"></option>
+  </datalist>
+  <p>nº columnas: <span id="demoColumns"></span></p>
+
+</div>
+
+<div class="grid" id="grid">
+  <div class="elemento">1</div>
+  <div class="elemento">2</div>
+  <div class="elemento">3</div>
+  <div class="elemento">4</div>
+  <div class="elemento">5</div>
+  <div class="elemento">6</div>
+  <div class="elemento">7</div>
+  <div class="elemento">8</div>
+  <div class="elemento">9</div>
+  <div class="elemento">10</div>
+  <div class="elemento">11</div>
+  <div class="elemento">12</div>
+</div>
+
+<script>
+  var slideRows = document.getElementById("selectRows");
+  var slideColumns = document.getElementById("selectColumns");
+
+  var outputRows = document.getElementById("demoRows");
+  var outputColumns = document.getElementById("demoColumns");
+
+  var elementGridStyles = window.getComputedStyle(document.getElementById('grid'));
+
+  var numRows = elementGridStyles.getPropertyValue('--numRows');
+  var numColumns = elementGridStyles.getPropertyValue('--numColumns');
+
+
+  outputRows.innerHTML = slideRows.value;
+  outputColumns.innerHTML = slideColumns.value;
+
+  slideRows.oninput = function() {
+    outputRows.innerHTML = this.value;
+    var numRows = slideRows.value;
+    document.getElementById('grid').style.setProperty('--numRows', numRows);
+  }
+
+   slideColumns.oninput = function() {
+    outputColumns.innerHTML = this.value;
+    var numColumns = slideColumns.value;
+    document.getElementById('grid').style.setProperty('--numColumns', numColumns);
+  }
+
+</script>
+
+</body>
+</html>
