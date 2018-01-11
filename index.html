@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="dist/style.css">
+</head>
+<body>
+
+<h1>Range Slider</h1>
+<div class="filrow filas">
+  <h2>Filas</h2>
+  <input type="range" min="1" max="100" value="50" list="selectorFilas" class="slideRows" id="selectRows">
+
+  <datalist id="selectorFilas">
+    <option value="0">
+    <option value="10">
+    <option value="20">
+    <option value="30">
+    <option value="40">
+    <option value="50">
+    <option value="60">
+    <option value="70">
+    <option value="80">
+    <option value="90">
+    <option value="100">
+  </datalist>
+  <p>nº filas: <span id="demoRows"></span></p>
+  
+</div>
+
+
+<div class="filrow columnas">
+  <h2>Columnas</h2>
+
+  <input type="range" min="1" max="100" value="50" list="selectorColumnas" class="slideColumns" id="selectColumns">
+
+  <datalist id="selectorColumnas">
+    <option value="0">
+    <option value="10">
+    <option value="20">
+    <option value="30">
+    <option value="40">
+    <option value="50">
+    <option value="60">
+    <option value="70">
+    <option value="80">
+    <option value="90">
+    <option value="100">
+  </datalist>
+  <p>nº columnas: <span id="demoColumns"></span></p>
+
+</div>
+
+<div class="grid">
+  <div class="elemento">1</div>
+  <div class="elemento">2</div>
+  <div class="elemento">3</div>
+  <div class="elemento">4</div>
+  <div class="elemento">5</div>
+  <div class="elemento">6</div>
+  <div class="elemento">7</div>
+  <div class="elemento">8</div>
+  <div class="elemento">9</div>
+  <div class="elemento">10</div>
+  <div class="elemento">11</div>
+  <div class="elemento">12</div>
+</div>
+
+<script>
+  var slideRows = document.getElementById("selectRows");
+  var slideColumns = document.getElementById("selectColumns");
+  var outputRows = document.getElementById("demoRows");
+  var outputColumns = document.getElementById("demoColumns");
+  var elemento = window.getComputedStyle(document.getElementById('caja1'));
+  var alturaCaja = elemento.getPropertyValue('--alturaCaja');
+  outputRows.innerHTML = slideRows.value;
+
+
+  slideRows.oninput = function() {
+    outputRows.innerHTML = this.value;
+    var alturaCaja = slideRows.value;
+    document.getElementById('caja1').style.setProperty('--alturaCaja', (alturaCaja + 'px'));
+  }
+
+</script>
+
+</body>
+</html>
