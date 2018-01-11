@@ -43,7 +43,7 @@
   --alturaCaja: 100px;
   --anchuraCaja: 100px;
   --numColumns:  3;
-  --numRows:  3;
+  --numRows:  4;
 }
 
 .caja{
@@ -56,9 +56,11 @@
 .grid{
     display: grid;
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-color: #C1C1C1;
+    grid-gap: 8px;
     grid-template-columns: repeat(var(--numColumns), 1fr);
+    grid-template-rows: repeat(var(--numRows), 1fr)
 
 }
 .elemento{
